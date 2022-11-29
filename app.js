@@ -228,3 +228,55 @@ function findPersonDescendants(person, people){
     return add.join('\n');
     
 }
+
+
+
+function searchByTraits(people){
+    //rather than return list, add logic to reprompt to search again. 
+//ex: {height: 76}
+    let trait; 
+    let matches; 
+    let pair; 
+    let displayedPeople;
+    let array = people;
+    let answer = 'yes';    
+    while (answer == "yes"){
+
+        
+        trait = prompt("Please type in search criteria without spaces then value. Separate multiple criteria by a semicolon (no spaces around the semicolon). You can also select 'restart' or 'quit'.");
+
+        pair = trait.split(' ');
+        //key trait[0]; 
+        //value trait[1]; 
+
+        matches = array.filter(function(el){
+            if (el[pair[0]] == pair[1]){
+                return true;
+            }
+            else{
+                return false;
+            }
+        })
+        displayedPeople = displayPeople(matches);
+        alert(displayedPeople.join('\n'));
+
+        answer = promptFor('Would you like to search again?', yesNo
+        ).toLowerCase();
+        array = matches; 
+    }    
+        
+
+
+
+    // return matches;     
+}
+
+
+
+
+// let trait = allTraits.map(function(el){
+//     return `${el.firstName} ${el.lastName}`
+//     })
+// return trait.join('\n');
+
+
