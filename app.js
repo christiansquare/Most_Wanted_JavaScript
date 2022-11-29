@@ -69,6 +69,7 @@ function mainMenu(person, people) {
             let personInfo = displayPerson(person[0]);
             alert(personInfo);
             break;
+
         case "family":
             //! TODO #2: Declare a findPersonFamily function //////////////////////////////////////////
             // HINT: Look for a people-collection stringifier utility function to help
@@ -76,19 +77,23 @@ function mainMenu(person, people) {
             let personFamily = findPersonFamily(person[0], people);
             alert(personFamily);
             break;
+
         case "descendants":
             //! TODO #3: Declare a findPersonDescendants function //////////////////////////////////////////
             // HINT: Review recursion lecture + demo for bonus user story
             let personDescendants = findPersonDescendants(person[0], people);
             alert(personDescendants);
             break;
+
         case "restart":
             // Restart app() from the very beginning
             app(people);
             break;
+
         case "quit":
             // Stop application execution
             return;
+
         default:
             // Prompt user again. Another instance of recursion
             return mainMenu(person, people);
@@ -128,13 +133,7 @@ function displayPeople(people) {
     });
     return allPeople;
 }
-// alert(
-//     people.map(function (person) {
-//         return `${person.firstName} ${person.lastName}`;
-//         })
-//     .join("\n")
-// );
-// }
+
 // End of displayPeople()
 
 /**
@@ -212,4 +211,21 @@ function findPersonFamily(person, people){
     })
     return personFam.join(', ');
 }
-//////
+
+
+function findPersonDescendants(person, people){
+    let descendants = people.filter(function(el){
+        if (el.parents.includes(person.id)){''
+            return true;
+        }
+        else{
+            return false;
+        }
+    })
+    let add = descendants.map(function(el){
+        return `${el.firstName} ${el.lastName}`
+        })
+    return add.join('\n');
+
+}
+
