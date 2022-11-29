@@ -72,6 +72,7 @@ function mainMenu(person, people) {
         case "family":
             //! TODO #2: Declare a findPersonFamily function //////////////////////////////////////////
             // HINT: Look for a people-collection stringifier utility function to help
+
             let personFamily = findPersonFamily(person[0], people);
             alert(personFamily);
             break;
@@ -122,14 +123,18 @@ function searchByName(people) {
  * @param {Array} people        A collection of person objects.
  */
 function displayPeople(people) {
-    alert(
-        people
-            .map(function (person) {
-                return `${person.firstName} ${person.lastName}`;
-            })
-            .join("\n")
-    );
+    let allPeople = people.map(function (person) {
+    return `${person.firstName} ${person.lastName}`;
+    });
+    return allPeople;
 }
+// alert(
+//     people.map(function (person) {
+//         return `${person.firstName} ${person.lastName}`;
+//         })
+//     .join("\n")
+// );
+// }
 // End of displayPeople()
 
 /**
@@ -140,8 +145,18 @@ function displayPeople(people) {
 function displayPerson(person) {
     let personInfo = `First Name: ${person.firstName}\n`;
     personInfo += `Last Name: ${person.lastName}\n`;
+    personInfo += `gender: ${person.gender}\n`;
+    personInfo += `dob: ${person.dob}\n`;
+    personInfo += `height: ${person.height}\n`;
+    personInfo += `weight: ${person.weight}\n`;
+    personInfo += `eyeColor: ${person.eyeColor}\n`;
+    personInfo += `occupation: ${person.occupation}\n`;
+    personInfo += `parents: ${person.parents}\n`;
+    personInfo += `currentSpouse: ${person.currentSpouse}\n`;
     //! TODO #1a: finish getting the rest of the information to display //////////////////////////////////////////
-    alert(personInfo);
+    return(personInfo);
+    // alert(personInfo);
+
 }
 // End of displayPerson()
 
@@ -184,3 +199,17 @@ function chars(input) {
 
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
+
+function findPersonFamily(person, people){
+    let allPeople = displayPeople(people);
+    let personFam = allPeople.filter(function(el){
+        if (el.includes(person.lastName)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    })
+    return personFam.join(', ');
+}
+//////
