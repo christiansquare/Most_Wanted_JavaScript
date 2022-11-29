@@ -210,6 +210,22 @@ function findPersonFamily(person, people){
             return false;
         }
     })
-    return personFam.join(', ');
+    return personFam.join('\n');
 }
 //////
+
+function findPersonDescendants(person, people){
+    let descendants = people.filter(function(el){
+        if (el.parents.includes(person.id)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    })
+    let add = descendants.map(function(el){
+        return `${el.firstName} ${el.lastName}`
+        })
+    return add.join('\n');
+    
+}
