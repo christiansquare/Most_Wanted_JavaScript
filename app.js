@@ -209,13 +209,13 @@ function findPersonFamily(person, people){
             return false;
         }
     })
-    return personFam.join(', ');
+    return personFam.join('\n');
 }
-
+//////
 
 function findPersonDescendants(person, people){
     let descendants = people.filter(function(el){
-        if (el.parents.includes(person.id)){''
+        if (el.parents.includes(person.id)){
             return true;
         }
         else{
@@ -226,6 +226,5 @@ function findPersonDescendants(person, people){
         return `${el.firstName} ${el.lastName}`
         })
     return add.join('\n');
-
+    
 }
-
