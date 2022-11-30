@@ -249,7 +249,7 @@ function searchByTraits(people){
         //value trait[1]; 
         
         for (let i = 0; i< pairs.length; i++){
-            pair = pairs[0].split(' ');
+            pair = pairs[i].split(' ');
 
             matches = array.filter(function(el){
                 if (el[pair[0]] == pair[1]){
@@ -258,7 +258,9 @@ function searchByTraits(people){
                 else{
                     return false;
                 }
-            })
+            });
+            array = matches;
+            
         }
         displayedPeople = displayPeople(matches);
         if (matches.length >= 1){
@@ -271,7 +273,7 @@ function searchByTraits(people){
         answer = promptFor('Would you like to search again?', yesNo
         ).toLowerCase();
         array = matches;
-        
+
         
     }
     if (matches.length === 1){
